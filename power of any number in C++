@@ -1,0 +1,32 @@
+#include <iostream>
+double power(double base, int exponent) {
+    double result = 1;
+    bool isNegativeExponent = (exponent < 0);
+    if (isNegativeExponent) {
+        exponent = -exponent;
+    }
+    for (int i = 0; i < exponent; ++i) {
+        result *= base;
+    }
+    if (isNegativeExponent) {
+        result = 1.0 / result;
+    }
+
+    return result;
+}
+
+int main() {
+    double base;
+    int exponent;
+
+    std::cout << "Enter the base: ";
+    std::cin >> base;
+
+    std::cout << "Enter the exponent: ";
+    std::cin >> exponent;
+
+    double result = power(base, exponent);
+    std::cout << base << "^" << exponent << " = " << result << std::endl;
+
+    return 0;
+}
