@@ -1,0 +1,41 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <algorithm>
+
+int findMostFrequentElement(const std::vector<int>& arr) {
+    std::unordered_map<int, int> frequencyMap;
+    for (int num : arr) {
+        frequencyMap[num]++;
+    }
+    int mostFrequentElement = arr[0];
+    int maxFrequency = 0;
+    
+    for (const auto& pair : frequencyMap) {
+        if (pair.second > maxFrequency) {
+            maxFrequency = pair.second;
+            mostFrequentElement = pair.first;
+        }
+    }
+
+    return mostFrequentElement;
+}
+
+int main() {
+    std::vector<int> arr;
+    int n, element;
+
+    std::cout << "Enter the number of elements in the array: ";
+    std::cin >> n;
+
+    std::cout << "Enter the elements of the array:" << std::endl;
+    for (int i = 0; i < n; ++i) {
+        std::cin >> element;
+        arr.push_back(element);
+    }
+
+    int mostFrequent = findMostFrequentElement(arr);
+    std::cout << "The most frequent element is: " << mostFrequent << std::endl;
+
+    return 0;
+}
