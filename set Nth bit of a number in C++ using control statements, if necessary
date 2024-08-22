@@ -1,0 +1,24 @@
+#include <iostream>
+#include <cmath>
+int setNthBit(int number, int n) {
+    int bitmask = 1 << n;
+    return number | bitmask; 
+}
+
+int main() {
+    int number, n;
+
+    std::cout << "Enter the number: ";
+    std::cin >> number;
+
+    std::cout << "Enter the position of the bit to set (0-based index): ";
+    std::cin >> n;
+    if (n < 0) {
+        std::cout << "The bit position cannot be negative." << std::endl;
+    } else {
+        int newNumber = setNthBit(number, n);
+        std::cout << "The number after setting the " << n << "th bit is: " << newNumber << std::endl;
+    }
+
+    return 0;
+}
